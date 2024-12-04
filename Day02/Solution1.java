@@ -23,8 +23,8 @@ public class Solution1 {
         for(int level = 0 ; level < report.size() - 1 ; level++){
             if(report.get(level+1) == report.get(level)) return 0;
             if(Math.abs(report.get(level+1) - report.get(level)) > 3) return 0;
-            if(report.get(level+1) > report.get(level) && !isAsc) return 0;
-            if(report.get(level+1) < report.get(level) && isAsc) return 0;
+            if(!isAsc && report.get(level+1) > report.get(level)) return 0;
+            if(isAsc && report.get(level+1) < report.get(level)) return 0;
         }
         return 1;
     }
