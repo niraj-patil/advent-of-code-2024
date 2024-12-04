@@ -10,8 +10,12 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class InputObjectifier {
-    public static List<List<Integer>> inputToMultipleListsVertical(String path){
 
+    public static String inputToString(String path){
+        return readFile(path);
+    }
+
+    public static List<List<Integer>> inputToMultipleListsVertical(String path){
         String input = readFile(path);
         List<String[]> rows = Arrays.stream(input.trim().split("\\n"))
                 .map(line -> line.trim().split("\\s+")) // Split each line into columns

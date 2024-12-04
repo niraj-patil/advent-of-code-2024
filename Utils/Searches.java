@@ -1,6 +1,9 @@
 package Utils;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Searches {
     public static int countOccurrences(List<Integer> sortedList, int target) {
@@ -46,5 +49,14 @@ public class Searches {
             }
         }
         return result;
+    }
+
+    public static List<String> findAllSubStrRegex(String text, String regex) {
+        List<String> matches = new ArrayList<String>();
+        Matcher m = Pattern.compile("(?=(" + regex + "))").matcher(text);
+        while(m.find()) {
+            matches.add(m.group(1));
+        }
+        return matches;
     }
 }
