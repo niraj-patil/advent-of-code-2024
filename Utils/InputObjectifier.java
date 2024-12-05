@@ -56,10 +56,12 @@ public class InputObjectifier {
         String input = readFile(path);
         List<List<Character>> charMatrix = new ArrayList<>();
         if(input.length()>0) charMatrix.add(new ArrayList<Character>());
-        while(letter<input.length()){
+        while(letter<input.length()-1){
             if(input.charAt(letter) == '\n') {
                 charMatrix.add(new ArrayList<Character>());
                 line++;
+                letter++;
+                continue;
             }
             charMatrix.get(line).add(input.charAt(letter));
             letter++;
