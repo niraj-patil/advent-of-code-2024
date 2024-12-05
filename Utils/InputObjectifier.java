@@ -51,6 +51,22 @@ public class InputObjectifier {
         return rowLists;
     }
 
+    public static List<List<Character>> inputToCharMatrix(String path){
+        int line = 0, letter =0;
+        String input = readFile(path);
+        List<List<Character>> charMatrix = new ArrayList<>();
+        if(input.length()>0) charMatrix.add(new ArrayList<Character>());
+        while(letter<input.length()){
+            if(input.charAt(letter) == '\n') {
+                charMatrix.add(new ArrayList<Character>());
+                line++;
+            }
+            charMatrix.get(line).add(input.charAt(letter));
+            letter++;
+        }
+        return charMatrix;
+    }
+
     private static String readFile(String file)  {
         try (BufferedReader reader = new BufferedReader(new FileReader (file))) {
             String line = null;
